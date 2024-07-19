@@ -1,0 +1,6 @@
+{
+  "SofexAI" : {
+    "model_name" : "gpt4all-13b-snoozy-q4_0.gguf",
+    "max_tokens" : 1024
+  }
+}
