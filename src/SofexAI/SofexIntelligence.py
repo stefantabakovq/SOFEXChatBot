@@ -1,3 +1,5 @@
+import os
+
 from dependency_injector.wiring import Provide, inject
 
 from src.Configs.SofexAIConfig import SofexAIConfig
@@ -7,7 +9,7 @@ from src.Models.AI import AI
 from gpt4all import GPT4All
 
 
-class SofexAI(AI):
+class SofexIntelligence(AI):
     @inject
     def __init__(self, config: SofexAIConfig = Provide[SofexAIContainer.ai_config]):
         super().__init__()
@@ -16,10 +18,10 @@ class SofexAI(AI):
         self.max_tokens = config.max_tokens
 
     def create_model(self):
-        model = GPT4All(self.model_name)
+        model = GPT4All(self.model_name, device='cuda')
         self.Model = model
         return model
 
-    def generate_answer(self) -> str:
+    def generate_answer(self, message: str) -> str:
         with self.Model.chat_session():
-            return self.Model.generate("How can I run LLMs efficiently on my laptop?", max_tokens=self.max_tokens)
+            return self.Model.generate(message, max_tokens=self.max_tokens)
