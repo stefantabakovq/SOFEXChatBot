@@ -19,6 +19,9 @@ def init():
     resource_container.wire(packages=[__name__, src.SofexAI])
 
 
+# Simple test of chatbot using python
+
+
 if __name__ == '__main__':
     init()
     print("Server starting, welcome to SOFEX.")
