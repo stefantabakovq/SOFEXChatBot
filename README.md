@@ -1,4 +1,4 @@
-# SOFEX
+# Simple GPT-like Open Source chat bot
 
 ## Run program via main.py 
 
